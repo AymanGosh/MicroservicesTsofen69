@@ -10,7 +10,8 @@ public class Runner {
         try {
             CompanyFacade companyFacade = new CompanyFacade();
 
-            // Example: Multithreading to add companies concurrently
+            // Dawod made a change !! 
+	    // Hello Tsofen!!
             Thread addCompanyThread1 = new Thread(() -> {
                 try {
                     companyFacade.addCompany(new Company("Company1", "email1@example.com", "password1"));
