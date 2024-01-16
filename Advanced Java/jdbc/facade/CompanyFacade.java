@@ -38,29 +38,4 @@ public class CompanyFacade {
     public Optional<Company> getOneCompany(int companyId) throws CompanyException {
         return companyDAO.getOneCompany(companyId);
     }
-
-
-
-    // Synchronized method to get a connection
-    public synchronized void executeWithConnection(ConnectionTask task) throws CompanyException {
-        try {
-            Optional<Connection> connectionOptional = companyDAO.getConn();
-            if (connectionOptional.isPresent()) {
-                Connection connection = connectionOptional.get();
-                try {
-                    task.execute(connection);
-                } finally {
-                    companyDAO.restoreConn(Optional.of(connection));
-                }
-            }
-        } catch (CompanyException e) {
-            throw new CompanyException("Exception in executeWithConnection - " + e.getMessage());
-        }
-    }
-
-    // Functional interface for tasks to be executed with a Connection
-    @FunctionalInterface
-    public interface ConnectionTask {
-        void execute(Connection connection) throws CompanyException;
-    }
 }
