@@ -23,9 +23,12 @@ public class CustomerService {
 		
 		cust1.setCustID(111);
 		cust1.setCustName("Zoubi");
-	
-		
 		System.out.println(cust1);
+
+		CustomerDAO dao= ctx.getBean(CustomerDAO.class);
+		System.out.println("Person count from MySQL: "+dao.count());
+
+		
 		((AnnotationConfigApplicationContext)ctx).close();
 
 	}
