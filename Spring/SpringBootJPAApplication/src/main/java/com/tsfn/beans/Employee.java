@@ -2,6 +2,8 @@ package com.tsfn.beans;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,13 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity(name= "employees")
 public class Employee {
 	
@@ -35,69 +31,73 @@ public class Employee {
 	@Column(name="empl_salay")
 	private double salary ;
 	
-	@Enumerated(EnumType.ORDINAL)  //Ordinal = Integer , String =string
+	@Enumerated(EnumType.ORDINAL)  // Ordinal - Integer (1,0) , String (M,F)
 	private Gender gender ;
 	
-    @ManyToOne
-    @JoinColumn(name = "dept_id" ,nullable = false)  //FK (jsut for 1:1 or M:1)
-	public Department depart;
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name= "depart_id" , nullable = false)
+	private Department depart;
 	
-	@ManyToMany(cascade= CascadeType.ALL , fetch = FetchType.EAGER)
+	@ManyToMany( cascade = CascadeType.ALL )
 	private List<Task> tasks;
 	
-	
-	
+	private String managerName ;
+
 	public int getId() {
 		return id;
 	}
-	
-	
-	
-	
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public double getSalary() {
 		return salary;
 	}
+
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+
 	public Gender getGender() {
 		return gender;
 	}
+
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	public Department getDepartment() {
+
+	public Department getDepart() {
 		return depart;
 	}
-	public void setDepartment(Department department) {
-		this.depart = department;
+
+	public void setDepart(Department depart) {
+		this.depart = depart;
 	}
+
 	public List<Task> getTasks() {
 		return tasks;
 	}
+
 	public void setTasks(List<Task> tasks) {
 		this.tasks = tasks;
 	}
-	
-	//JPA - Java Persistence API -Spring Data JPA (implementation ORM )
-	//ORM - Object Relational Mapping 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}  	
+
 }

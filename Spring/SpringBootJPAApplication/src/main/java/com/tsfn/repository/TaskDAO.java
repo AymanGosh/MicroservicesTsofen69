@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.tsfn.beans.Employee;
 import com.tsfn.beans.Task;
 
+
+
 @Repository
 public class TaskDAO {
 
@@ -18,23 +20,22 @@ public class TaskDAO {
 	public void saveTask(Task Task) {
 		taskRepo.save(Task);
 	}
-
+	
 	public Optional<Task> getTaskById(int id) {
 		return taskRepo.findById(id);
 	}
-
+	
 	public Iterable<Task> getAllTasks() {
 		return taskRepo.findAll();
 	}
-
+	
 	public void updateTask(Task Task) {
 		taskRepo.save(Task);
 	}
 
 	public void deleteTask(int id) {
-		taskRepo.deleteById(null);
+		taskRepo.deleteById(id);
 	}
-	
 	
 	public List<Task> getTaskByEmployeeName (Employee employee)
 	{
