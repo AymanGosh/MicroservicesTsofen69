@@ -35,7 +35,7 @@ public class Employee {
 	private Gender gender ;
 	
 	@JsonBackReference
-	@ManyToOne
+	@ManyToOne ()
 	@JoinColumn(name= "depart_id" , nullable = false)
 	private Department depart;
 	

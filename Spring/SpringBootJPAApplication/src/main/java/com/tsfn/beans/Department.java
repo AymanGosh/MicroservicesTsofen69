@@ -28,15 +28,13 @@ public class Department {
 	private String name; 
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "department" ,fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "department" ,fetch = FetchType.EAGER )
 	private List<Task> tasks;
 	
 	@JsonManagedReference
-	@OneToMany(mappedBy = "depart" ,fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "depart" ,fetch = FetchType.EAGER )
 	private List<Employee> employees;
 
-	
-	
 	public int getId() {
 		return depart_id;
 	}

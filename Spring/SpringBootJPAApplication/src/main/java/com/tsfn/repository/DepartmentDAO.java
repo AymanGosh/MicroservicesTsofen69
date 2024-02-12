@@ -11,6 +11,8 @@ import com.tsfn.beans.Department;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 @Repository
 @Transactional
@@ -40,4 +42,13 @@ public class DepartmentDAO {
 	public List<Department> getAllDepartments(){
 		return entityManager.createQuery("SELECT d FROM Department d" ,Department.class).getResultList();              //HQL Hibernate Query Language 
 	}
+
+	public Department findDepartmentByName(String name) {
+	    return entityManager.createQuery(
+	        "SELECT d FROM Department d WHERE d.name = :name", 
+	        Department.class)
+	    .setParameter("name", name)
+	    .getSingleResult();
+	}
+
 }

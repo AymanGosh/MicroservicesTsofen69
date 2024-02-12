@@ -1,4 +1,4 @@
-package com.tsfn.controler;
+package com.tsfn.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +23,7 @@ import jakarta.websocket.server.PathParam;
 //http://localhost:8080/departmetns/getall
 @RestController
 //@RequestMapping(value="/departments")
-public class DerpartmentControler {
+public class DerpartmentController {
 	@Autowired
 	DepartmetService departmentService ;
 	
