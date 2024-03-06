@@ -16,5 +16,4 @@ public class PurchaseCoupon implements Serializable {
 
 	@Id
 	private PurchaseCouponId purchaseCouponId;
-
 }
