@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: customerdb
+      #MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+
+  customerservice:
+    image: customerimg:customer
+    restart: always
+    depends_on:
+      - mysql

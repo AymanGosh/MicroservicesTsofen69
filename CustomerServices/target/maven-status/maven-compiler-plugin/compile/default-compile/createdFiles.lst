@@ -1,0 +1,16 @@
+com\tsfn\beans\SingltonBean.class
+com\amd\CustomerMsApplication.class
+com\tsfn\conf\Config.class
+com\tsfn\model\Customer.class
+com\tsfn\model\BankAccount.class
+com\amd\Controller\CustomerController.class
+com\amd\Services\CustomerServices.class
+com\amd\model\Customer.class
+com\tsfn\model\Account.class
+com\tsfn\beans\PrototypeBean.class
+com\tsfn\CustomerService.class
+com\tsfn\model\Account2.class
+com\tsfn\aop\ExecutionLoggingAspect.class
+com\amd\Services\CustomerServicesImpl.class
+com\amd\dao\CustomerRepository.class
+com\tsfn\repositry\CustomerDAO.class
